@@ -145,11 +145,28 @@
     </style>
   </head>
   <body>
-    <a-scene>
+   <a-scene>
       <!-- Câmera com cursor -->
       <a-camera position="0 1.6 4">
         <a-cursor color="yellow"></a-cursor>
       </a-camera>
+
+      <!-- Adicione o quarto 3D como fundo/ambiente -->
+      <a-assets>
+        <a-asset-item id="quarto3d" src="quarto1.glb"></a-asset-item>
+      </a-assets>
+      <a-entity 
+        id="quarto-fundo"
+        gltf-model="#quarto3d"
+        position="0 0 0"
+        scale="2 2 2"
+      ></a-entity>
+     <!-- Informações sobre o sólido -->
+      <a-text id="solid-info" position="0 -2 -3" align="center" color="white" value=""></a-text>
+
+      <!-- Luzes -->
+      <a-light type="ambient" color="#FFFFFF" intensity="0.5"></a-light>
+      <a-light type="point" intensity="1" position="2 4 4"></a-light>
 
       <!-- Objetos em fila horizontal elevados -->
       <a-entity position="-6 4 -5" select-on-hover="target: tetrahedron">
@@ -198,3 +215,4 @@
     </a-scene>
   </body>
 </html>
+
